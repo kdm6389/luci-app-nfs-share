@@ -1,4 +1,4 @@
 # luci-app-nfs-share
-Front and plugin for nfs-sharing for LEDE project 
+Frontend plugin for nfs-sharing for LEDE project and LuCI
 
 #
