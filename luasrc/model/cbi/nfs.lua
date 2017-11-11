@@ -2,10 +2,12 @@
 -- Copyright 2008 Jo-Philipp Wich <jow@openwrt.org>
 -- Licensed to the public under the Apache License 2.0.
 -- imported from https://github.com/openwrt/luci/edit/master/applications/luci-app-samba/luasrc/model/cbi/samba.lua for twweaking for NFS, since I am unable find where is old openwrt fronend for nfs.
+-- needs to be edited
 
-m = Map("samba", translate("Network Shares"))
 
-s = m:section(TypedSection, "samba", "Samba")
+m = Map("nfs", translate("Network Shares - NFS"))
+
+s = m:section(TypedSection, "nfs", "NFS")
 s.anonymous = true
 
 s:tab("general",  translate("General Settings"))
@@ -21,19 +23,19 @@ h.rmempty = false
 
 tmpl = s:taboption("template", Value, "_tmpl",
 	translate("Edit the template that is used for generating the samba configuration."), 
-	translate("This is the content of the file '/etc/samba/smb.conf.template' from which your samba configuration will be generated. " ..
+	translate("This is the content of the file '/etc/samba/nfs.conf.template' from which your samba configuration will be generated. " ..
 		"Values enclosed by pipe symbols ('|') should not be changed. They get their values from the 'General Settings' tab."))
 
 tmpl.template = "cbi/tvalue"
 tmpl.rows = 20
 
 function tmpl.cfgvalue(self, section)
-	return nixio.fs.readfile("/etc/samba/smb.conf.template")
+	return nixio.fs.readfile("/etc/nfs/nfs.conf.template")
 end
 
 function tmpl.write(self, section, value)
 	value = value:gsub("\r\n?", "\n")
-	nixio.fs.writefile("//etc/samba/smb.conf.template", value)
+	nixio.fs.writefile("//etc/nfs/nfs.conf.template", value)
 end
 
 
