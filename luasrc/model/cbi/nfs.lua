@@ -1,5 +1,3 @@
--- Copyright 2008 Steven Barth <steven@midlink.org>
--- Copyright 2008 Jo-Philipp Wich <jow@openwrt.org>
 -- Licensed to the public under the Apache License 2.0.
 -- imported from https://github.com/openwrt/luci/edit/master/applications/luci-app-samba/luasrc/model/cbi/samba.lua for twweaking for NFS, since I am unable find where is old openwrt fronend for nfs.
 -- needs to be edited
